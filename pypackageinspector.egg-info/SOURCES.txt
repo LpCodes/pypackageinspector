@@ -1,0 +1,8 @@
+README.md
+setup.py
+pypackageinspector/__init__.py
+pypackageinspector/main.py
+pypackageinspector.egg-info/PKG-INFO
+pypackageinspector.egg-info/SOURCES.txt
+pypackageinspector.egg-info/dependency_links.txt
+pypackageinspector.egg-info/top_level.txt
