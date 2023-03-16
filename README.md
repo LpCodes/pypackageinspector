@@ -1,4 +1,4 @@
-
+[![Publish Package](https://github.com/LpCodes/pypackageinspector/actions/workflows/python-publish.yml/badge.svg)](https://github.com/LpCodes/pypackageinspector/actions/workflows/python-publish.yml)
 # pypackageinspector
 
 pyCryptobox is a package in Python that inspects a Python package and prints out all the functions and methods defined in that package. It takes a single argument, package, which is a string representing the name of the package to be inspected.
