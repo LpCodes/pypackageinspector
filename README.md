@@ -1,7 +1,7 @@
 [![Publish Package](https://github.com/LpCodes/pypackageinspector/actions/workflows/python-publish.yml/badge.svg)](https://github.com/LpCodes/pypackageinspector/actions/workflows/python-publish.yml) ![PyPI](https://img.shields.io/pypi/v/pypackageinspector)[![Downloads](https://static.pepy.tech/personalized-badge/pypackageinspector?period=total&units=none&left_color=black&right_color=brightgreen&left_text=Downloads)](https://pepy.tech/project/pypackageinspector)
 # pypackageinspector
 
-pyCryptobox is a package in Python that inspects a Python package and prints out all the functions and methods defined in that package. It takes a single argument, package, which is a string representing the name of the package to be inspected.
+pypackageinspector is a package in Python that inspects a given package and prints out all the functions and methods defined in that package. It takes a single argument, package, which is a string representing the name of the package to be inspected.
 This can be useful in situations where you want to explore the functionality of a package before deciding whether or not to use it in your project, or when you need to quickly get a sense of what functions and methods are available in a package.
 
 ## Installation
@@ -16,6 +16,8 @@ pip install pypackageinspector
 
 Here's an example of how to call the inspector() function:
 ```python
+from pypackageinspector import inspector
+
 inspector('numpy', inspect_functions=True, inspect_methods=False)
 
 ```
