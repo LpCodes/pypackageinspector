@@ -1,7 +1,8 @@
 import importlib.util
+from typing import List
 
 
-def inspector(package, inspect_functions=True, inspect_methods=True):
+def inspector(package: str, inspect_functions: bool = True, inspect_methods: bool = True) -> None:
     """
     Inspect a Python package and print out its functions and/or methods.
 
@@ -13,35 +14,35 @@ def inspector(package, inspect_functions=True, inspect_methods=True):
     Returns:
         None
     """
-    spec = importlib.util.find_spec(package)
-
-    if spec is None:
+    try:
+        spec = importlib.util.find_spec(package)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+    except (ImportError, AttributeError):
         print(f"Error: Package or module '{package}' not found.")
         return
 
-    module = importlib.import_module(package)
-
     # get all functions and methods
-    functions = []
-    methods = []
-    if inspect_functions:
-        functions = [func for func in dir(module) if callable(getattr(module, func))]
-    if inspect_methods:
-        methods = [method for method in dir(module) if not callable(getattr(module, method))]
+    functions: List[str] = []
+    methods: List[str] = []
+    for name in dir(module):
+        obj = getattr(module, name)
+        if inspect_functions and callable(obj):
+            functions.append(name)
+        elif inspect_methods and not callable(obj):
+            methods.append(name)
 
     # print functions
-    if inspect_functions:
-        print("Functions:")
+    if inspect_functions and functions:
+        print("\n" + "=" * 20 + " Functions " + "=" * 20)
         for i, func in enumerate(functions):
-            print(f"{i}. {func}")
+            print(f"{i + 1}. {func}")
 
     # print methods
-    if inspect_methods:
-        if inspect_functions:
-            print("\nMethods:")
-        else:
-            print("Methods:")
+    if inspect_methods and methods:
+        print("\n" + "=" * 20 + " Methods " + "=" * 20)
         for i, method in enumerate(methods):
-            print(f"{i}. {method}")
+            print(f"{i + 1}. {method}")
+
 
 

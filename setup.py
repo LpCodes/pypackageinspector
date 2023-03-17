@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pypackageinspector",
-    version="1.0.1",
+    version="1.0.2",
     author="https://github.com/LpCodes",
     description="A Python package to inspect other Python packages.",
     long_description_content_type="text/markdown",
